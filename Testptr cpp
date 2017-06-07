@@ -1,0 +1,61 @@
+#include <iostream>
+
+using namespace std;
+ 
+void testPointer ( int * & refPointer, int * valPointer)
+ {
+
+	 int * tempPtr;
+
+	 cout << " *intptr2 inside function before change is: " << *refPointer << endl;
+	 cout << " *intptr1 inside function before change is " << *valPointer << endl;
+
+	 tempPtr = refPointer;
+	 refPointer = valPointer;
+	 valPointer = tempPtr;
+
+	 cout << " *intptr2 inside function after change is: " << *refPointer << endl;
+	 cout << " *intptr1 inside function after change is " << *valPointer << endl;
+
+ }
+
+int main ( ) {
+	
+	int   a = 5;
+
+	int * intptr1;
+	int * intptr2;
+
+
+	intptr1 = &a;
+
+	cout << "a: " << a << endl;
+
+	cout << "*intptr1: " << *intptr1 << endl;
+
+	cout << "intptr1: " << intptr1 << endl;
+
+	cout << "&intptr1: " << &intptr1 << endl;
+
+	cout << "address of a: " << &a << endl;
+	cout << "address of *intptr1:  " << &(*intptr1) << endl;
+
+
+
+	int b = 10;
+
+	intptr2 = &b;
+
+
+	cout << "b: " << b <<  endl;
+
+	cout << "*intptr2: " << *intptr2 << endl;
+
+	testPointer(intptr2, intptr1 );
+
+	cout << "*intptr2: " << *intptr2 << endl;
+
+	cout << "*intptr1:  " << *intptr1 << endl;
+
+	return 0;
+}
